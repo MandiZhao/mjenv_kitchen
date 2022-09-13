@@ -1,0 +1,100 @@
+<mujocoinclude>
+
+    <!--Palm-->
+    <body name="palm" pos="0 0 0" childclass="dhand">
+        <geom name="skeleton_mesh" mesh="skeleton" rgba="1 1 1 1" pos="-0.001 0 0.1032" class="viz_dhand"/>
+        <geom name="Palmcenter" type="mesh" mesh="PalmC" pos="-0.001 0 0.1032" class="col_dhand"/>
+        <geom name="Palmright" type="mesh" mesh="PalmR" pos="-0.001 0 0.1032" class="col_dhand"/>
+        <geom name="Palmleft1" type="mesh" mesh="PalmL1" pos="-0.001 0 0.1032" class="col_dhand"/>
+        <geom name="Palmleft2" type="mesh" mesh="PalmL2" pos="-0.001 0 0.1032" class="col_dhand"/>
+
+        <!--Plate-->
+          <geom name="plate1_mesh" mesh="palm_plate" pos="0 -0.0255 0.1032" class="viz_dhand"/>
+          <geom name="plate2_mesh" mesh="top_plate" pos="0 0.0235 0.1032" class="viz_dhand" euler="0 0 3.14"/>
+
+        <!--Thumb finger-->
+        <body name="thumb_finger" pos="0.0343 0.0015 0.027" euler="0 1.92 0">
+            <geom mesh="X430" pos="0 0 0" class="viz_dhand"/>
+
+            <body name="thumb_proximal" pos="0 0 0.03525">
+                <geom type="box" pos="0 0 0.01308" size="0.012 0.0205 0.015" class="col_dhand"/>
+                <geom mesh="knuckle" pos="0 0 0" euler="1.57 0 1.57" class="viz_dhand_metal"/>
+                <geom type="box" pos="0 0.0025 0.0375" size="0.02325 0.01425 0.017" euler="1.57 1.57 0" class="col_dhand"/>
+                <geom mesh="X430" pos="0 0.026 0.0375" euler="1.57 0 1.57" class="viz_dhand"/>
+                <joint name="TFJ1" type="hinge" pos="0 0 0" axis="0 1 0" limited="true" range="-0.75 2.05"/>
+
+                <body name="thumb_middle" pos="-0.001 -.0095 0.0375">
+                    <geom euler="0 -1.57 0" mesh="bracket2" pos="-0.016 0 0.0115" class="viz_dhand_metal"/>
+                    <geom euler="0 1.57 3.14" mesh="bracket2" pos="0.018 0 0.0115" class="viz_dhand_metal"/>
+                    <geom type="box" pos="0 0 0.0415" size="0.01425 0.017 0.02325" euler="0 0 1.57" class="col_dhand"/>
+                    <geom mesh="X430" pos="0 0 0.018" euler="0 0 1.57" class="viz_dhand"/>
+                    <joint name="TFJ2" type="hinge" pos="0 0 0" axis="1 0 0" limited="true" range="-0.65 2.14"/>
+
+                    <body name="thumb_distal" pos="0 0 0.0532">
+                        <geom mesh="fingertip" pos="0 0 .00" class="viz_dhand" euler="-1.57 1.57 0"/>
+                        <geom mesh="fingertip" type="mesh" pos="0 0 .00" class="col_dhand_tip" euler="-1.57 1.57 0"/> <!-- use default convex hull conversion-->
+                        <joint name="TFJ3" type="hinge" pos="0 0 0" axis="1 0 0" limited="true" range="-2.0 2.0"/>
+                    </body>
+                </body>
+            </body>
+        </body>
+        <!--Thumb finger end-->
+
+        <!--Index Finger-->
+        <body name="index_finger" pos="0.0445 .002 0.06325">
+            <geom name="X430_mesh" mesh="X430" pos="0 0 0" class="viz_dhand"/>
+
+            <body name="index_proximal" pos="0 0 0.03525">
+                <geom type="box" pos="0 0 0.01308" size="0.012 0.0205 0.015" class="col_dhand"/>
+                <geom mesh="knuckle" pos="0 0 0" euler="1.57 0 1.57" class="viz_dhand_metal"/>
+                <geom type="box" pos="0 0.0025 0.0375" size="0.02325 0.01425 0.017" euler="1.57 1.57 0" class="col_dhand"/>
+                <geom mesh="X430" pos="0 0.026 0.0375" euler="1.57 0 1.57" class="viz_dhand"/>
+                <joint name="IFJ1" type="hinge" pos="0 0 0" axis="0 1 0" limited="true" range="-0.75 2.05"/>
+
+                <body name="index_middle" pos="-0.001 -.0095 0.0375">
+                    <geom euler="0 -1.57 0" mesh="bracket2" pos="-0.016 0 0.0115" class="viz_dhand_metal"/>
+                    <geom euler="0 1.57 3.14" mesh="bracket2" pos="0.018 0 0.0115" class="viz_dhand_metal"/>
+                    <geom type="box" pos="0 0 0.0415" size="0.01425 0.017 0.02325" euler="0 0 1.57" class="col_dhand"/>
+                    <geom mesh="X430" pos="0 0 0.018" euler="0 0 1.57" class="viz_dhand"/>
+                    <joint name="IFJ2" type="hinge" pos="0 0 0" axis="1 0 0" limited="true" range="0 1.57"/>
+
+                    <body name="index_distal" pos="0 0 0.0532">
+                        <geom mesh="fingertip" pos="0 0 .00" class="viz_dhand" euler="-1.57 1.57 0"/>
+                        <geom mesh="fingertip" type="mesh" pos="0 0 .00" class="col_dhand_tip" euler="-1.57 1.57 0"/> <!-- use default convex hull conversion-->
+                        <joint name="IFJ3" type="hinge" pos="0 0 0" axis="1 0 0" limited="true" range="0 1.57"/>
+                    </body>
+                </body>
+            </body>
+        </body>
+        <!--Index Finger end-->
+
+        <!--Little Finger-->
+        <body name="little_finger" pos="-.0445 .002 0.06325">
+            <geom mesh="X430" pos="0 0 0" class="viz_dhand"/>
+
+            <body name="little_proximal" pos="0 0 0.03525">
+                <geom type="box" pos="0 0 0.01308" size="0.012 0.0205 0.015" class="col_dhand"/>
+                <geom mesh="knuckle" pos="0 0 0" euler="1.57 0 1.57" class="viz_dhand_metal"/>
+                <geom type="box" pos="0 0.0025 0.0375" size="0.02325 0.01425 0.017" euler="1.57 1.57 0" class="col_dhand"/>
+                <geom mesh="X430" pos="0 0.026 0.0375" euler="1.57 0 1.57" class="viz_dhand"/>
+                <joint name="LFJ1" type="hinge" pos="0 0 0" axis="0 1 0" limited="true" range="-0.75 2.05"/>
+
+                <body name="little_middle" pos="-0.001 -.0095 0.0375">
+                    <geom euler="0 -1.57 0" mesh="bracket2" pos="-0.016 0 0.0115" class="viz_dhand_metal"/>
+                    <geom euler="0 1.57 3.14" mesh="bracket2" pos="0.018 0 0.0115" class="viz_dhand_metal"/>
+                    <geom type="box" pos="0 0 0.0415" size="0.01425 0.017 0.02325" euler="0 0 1.57" class="col_dhand"/>
+                    <geom mesh="X430" pos="0 0 0.018" euler="0 0 1.57" class="viz_dhand"/>
+                    <joint name="LFJ2" type="hinge" pos="0 0 0" axis="1 0 0" limited="true" range="-0.65 2.14"/>
+
+                    <body name="little_distal" pos="0 0 0.0532">
+                        <geom mesh="fingertip" pos="0 0 .00" class="viz_dhand" euler="-1.57 1.57 0"/>
+                        <geom mesh="fingertip" type="mesh" pos="0 0 .00" class="col_dhand_tip" euler="-1.57 1.57 0"/> <!-- use default convex hull conversion-->
+                        <joint name="LFJ3" type="hinge" pos="0 0 0" axis="1 0 0" limited="true" range="-2.0 2.0"/>
+                    </body>
+                </body>
+            </body>
+        </body>
+        <!--Little finger end-->
+
+    </body>
+</mujocoinclude>
